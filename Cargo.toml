@@ -9,7 +9,7 @@ cortex-m = "0.5.8"
 
 [dependencies.smoltcp]
 git = "https://github.com/kitzin/smoltcp"
-branch "v0.5.0-fix"
+branch = "v0.5.0-fix"
 default-features = false
 features = ["proto-ipv4"]
 
