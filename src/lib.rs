@@ -300,6 +300,11 @@ impl EthernetDevice {
     pub fn disable_rx_interrupt(&mut self) {
         self.eth_dma.dmaier.modify(|_, w| w.rie().clear_bit());
     }
+    
+    // Clear interrupts hacky
+    pub fn clear_interrupt(&mut self) {
+        self.eth_dma.dmasr.write(|w| unsafe { w.bits(0x1_E7FF) });   
+    }
 
     /// Sets up the device peripherals.
     fn init_peripherals(&mut self, mac: EthernetAddress) {
