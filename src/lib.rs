@@ -303,13 +303,14 @@ impl EthernetDevice {
 
     /// Sets up the device peripherals.
     fn init_peripherals(&mut self, mac: EthernetAddress) {
-        cortex_m::interrupt::free(|_| {
+        /*cortex_m::interrupt::free(|_| {
             let rcc = unsafe { &(*RCC::ptr()) };
 
             // Reset ETH_MAC and ETH_DMA
             rcc.ahb1rstr.modify(|_, w| w.ethmacrst().reset());
             rcc.ahb1rstr.modify(|_, w| w.ethmacrst().clear_bit());
         });
+        */
 
         self.eth_dma.dmabmr.modify(|_, w| w.sr().reset());
         while self.eth_dma.dmabmr.read().sr().is_reset() {}
