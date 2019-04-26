@@ -14,4 +14,5 @@ default-features = false
 features = ["proto-ipv4"]
 
 [dependencies.stm32f4xx-hal]
-git = "https://github.com/stm32-rs/stm32f4xx-hal.git"
+git = "https://github.com/Ironedde/stm32f4xx-hal.git"
+branch = "project-fix"
