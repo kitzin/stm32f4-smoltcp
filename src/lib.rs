@@ -364,7 +364,7 @@ impl EthernetDevice {
     }
 
     /// Read a register over SMI.
-    fn smi_read(&mut self, reg: u8) -> u16 {
+    pub fn smi_read(&mut self, reg: u8) -> u16 {
         // Use PHY address 00000, set register address, set clock to HCLK/102, start read.
         self.eth_mac.macmiiar.write(|w| {
             w.mb()
@@ -385,7 +385,7 @@ impl EthernetDevice {
     }
 
     /// Write a register over SMI.
-    fn smi_write(&mut self, reg: u8, val: u16) {
+    pub fn smi_write(&mut self, reg: u8, val: u16) {
         // Use PHY address 00000, set write data, set register address, set clock to HCLK/102,
         // start write operation.
         self.eth_mac.macmiidr.write(|w| w.md().bits(val));
