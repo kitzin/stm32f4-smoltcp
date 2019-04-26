@@ -372,7 +372,7 @@ impl EthernetDevice {
                 .pa()
                 .bits(self.phy_addr)
                 .cr()
-                .cr_100_150()
+                .cr_150_168()
                 .mr()
                 .bits(reg)
         });
@@ -397,7 +397,7 @@ impl EthernetDevice {
                 .mw()
                 .write()
                 .cr()
-                .cr_100_150()
+                .cr_150_168()
                 .mr()
                 .bits(reg)
         });
